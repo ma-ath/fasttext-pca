@@ -26,7 +26,7 @@ for word in vocab:
 df = pd.DataFrame(data_matrix, columns = vocab)
 
 # Perform PCA
-n_components = 2
+n_components = 3
 pca = PCA(n_components=n_components)
 components = pca.fit_transform(df)
 
@@ -38,5 +38,5 @@ for collumn in data_matrix.transpose():
     i+=1
 
 # Plot scatter graph
-fig = px.scatter(projection.transpose(), x=0, y=1, color=vocab)
+fig = px.scatter_3d(projection.transpose(), x=0, y=1, z=2, color=vocab)
 fig.show()
